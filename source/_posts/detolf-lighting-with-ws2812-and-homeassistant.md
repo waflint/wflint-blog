@@ -27,7 +27,7 @@ The second pass, while still passively controlled, wrapped the tape around the e
     <td valign="top">{% img https://assets.wflint.me/blog.scaledperimiter.jpg '"perimiter style" "perimiter style"'%}</td>
   </tr>
   <tr>
-    <td valign="top" colspan=2 style="text-align:center"><sup><em>conveniently, this path is around 14 feet, putting it comfortably within the standard 5-meter LED tape size!</sup></em><td>
+    <td valign="top" colspan=2 style="text-align:center"><sup><em>conveniently, the perimiter path is around 14 feet, putting it comfortably within the standard 5-meter LED tape size!</sup></em><td>
   </tr>
 </table>
 
@@ -50,8 +50,7 @@ Rule of thumb I’ve seen for WS8212B/SK6812 is to budget approximately 50mA per
 
 Be aware that with cheap power supplies, you get what you pay for. From reviews and from experience, drive the average supply anywhere near its rated amperage and voltage sags will not be far behind. This is a twin peril with the “helpful” barrel breakout jacks that may be included with the purchase.
 
-<p style="text-align:center"> {% image https://assets.wflint.me/blog.scaledbreakout.png '"do not trust these" "do not trust these"'%}</p>
-<p style="text-align:center"><sup><em>Do not trust breakout jacks</em></sup></p>
+<p style="text-align:center"> {% image https://assets.wflint.me/blog.scaledbreakout.png '"do not trust breakout jacks" "do not trust breakout jacks"'%}</p>
 
 Typically these are thrown in with the [“normal”](https://smile.amazon.com/gp/product/B07CMM2BBR) 5v-laptop-brick types of supplies, but please do yourself a favor and spend a few bucks on ones that won’t burn your house down. The high resistance (and iffy internal contacts) can wreak havoc on stability and the power spent dumping waste heat can easily eat whatever headroom is left in the power budget. Save yourself the headache and spend a few extra dollars on a purpose built socket (like [this](https://smile.amazon.com/gp/product/B09WJC414P)).
 
@@ -72,9 +71,6 @@ One element that wasn’t self-evident but turned out to be a great addition was
     <td valign="top">{% img https://assets.wflint.me/blog.scaled4500k.jpg '"4500k" "4500k"'%}</td>
     <td valign="top">{% img https://assets.wflint.me/blog.scaled6000k.jpg '"6000k" "6000k"'%}</td>
   </tr>
-    <td valign="top" style="text-align:center"><sup><em>3000k</em></sup></td>
-    <td valign="top" style="text-align:center"><sup><em>4500k</em></sup></td>
-    <td valign="top" style="text-align:center"><sup><em>6000k</em></sup></td>
  </table>
 </p>
 

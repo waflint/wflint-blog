@@ -127,7 +127,51 @@ ignore:
 ## Themes: https://hexo.io/themes/
 
 # https://github.com/jbreckmckye/hexo-theme-octo
-theme: landscape
+theme: next
+theme_config:
+  scheme: Pisces
+  darkmode: true
+  sidebar:
+    position: right
+  site_state: false
+  motion:
+    enable: false
+  fancybox: true
+  favicon: 
+    small: /images/favicon.png
+    medium: /images/favicon.png
+  post_meta:
+    updated_at:
+      enable: false
+  menu:
+    home: /
+    archives: /archives/
+    categories: /categories/
+    tags: /tags/
+    about: /about/
+  footer:
+    icon:
+      color: "#808080"
+  tagcloud:
+    min: 12 # Minimum font size in px
+    max: 30 # Maximum font size in px
+    amount: 200 # Total amount of tags
+    orderby: name # Order of tags
+    order: 1 # Sort order
+  codeblock:
+    # Code Highlight theme
+    # All available themes: https://theme-next.js.org/highlight/
+    theme:
+      light: default
+      dark: stackoverflow-dark
+    prism:
+      light: prism
+      dark: prism-dark
+    copy_button:
+      enable: true
+  theme_color:
+    light: "#222"
+    dark: "#222"
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
