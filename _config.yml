@@ -177,6 +177,13 @@ theme_config:
   theme_color:
     light: "#222"
     dark: "#222"
+  font:
+    enable: true
+    host: https://fonts.googleapis.com
+  global:
+    external: true
+    family: Roboto, sans-serif
+    size: 1
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
