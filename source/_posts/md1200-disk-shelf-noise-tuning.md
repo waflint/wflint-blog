@@ -5,7 +5,7 @@ tags: ["homelab", "MD1200", "powervault", "server stuff"]
 categories: "Homelab"
 ---
 
-{% img https://assets.wflint.me/blog.scaledpowervault.jpeg '"Powervault MD1200" "Powervault MD1200"'%}
+{% post_link 'md1200-disk-shelf-noise-tuning' <img src="https://assets.wflint.me/blog.scaledpowervault.jpeg" width="80%" title="Powervault MD1200" alt="Powervault MD1200"> false %}
 
 <!-- more -->
 

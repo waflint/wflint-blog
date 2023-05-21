@@ -5,7 +5,7 @@ tags: ["detolf", "esphome", "homeassistant", "neopixel", "WS2812"]
 categories: "Neopixel Adventures"
 ---
 
-{% img https://assets.wflint.me/blog.scaledoutcome.jpg 750 350 '"Neopixel Detolf Lighting" "Neopixel Detolf Lighting"'%}
+{% post_link 'detolf-lighting-with-ws2812-and-homeassistant' <img src="https://assets.wflint.me/blog.scaledoutcome.jpg" width="80%" title="Neopixel Detolf Lighting" alt="Neopixel Detolf Lighting"> false %}
 
 <!-- more -->
 
