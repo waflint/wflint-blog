@@ -184,6 +184,11 @@ theme_config:
     external: true
     family: Roboto, sans-serif
     size: 1
+  open_graph:
+    enable: true
+    # Add pairs each line to customize
+    options:
+      type: blog
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment

@@ -13,7 +13,9 @@ I'm currently running a TrueNAS install for my local network using an MD1200 as 
 
 These units have their fans within the removable PSUs and have been a great candidate for hardware [modding](https://imgur.com/a/fG3hwew)
 
+<div style="width:50%; margin:auto;">
 <blockquote class="imgur-embed-pub" lang="en" data-id="I9jktuh" ><a href="//imgur.com/I9jktuh"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+</div>
 
 These doubled up fans (in each of the 2 power supplies) are the sole airflow for the unit, and their curves are tuned aggressively.
 

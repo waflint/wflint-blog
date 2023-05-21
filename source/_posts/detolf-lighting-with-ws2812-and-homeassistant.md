@@ -21,11 +21,14 @@ I iterated over a few revisions which used 5v LED tape soldered to USB leads, bu
 
 The second pass, while still passively controlled, wrapped the tape around the edges of the case which significantly increased the surface area of light emitted while also not cutting into the view of the case itself. As this introduced right-angles into the equation, the tape needed to be cut and rotated with the use of corner-addons (more on this later)
 
+<div style="width:80%; margin:auto;">
+
 {% grouppicture 2-2 %}
-  {% img https://assets.wflint.me/blog.scaledladder.jpg 350 800 '"laddered style" "laddered style"'%}
-  {% img https://assets.wflint.me/blog.scaledperimiter.jpg 350 800 '"perimiter style" "perimiter style"'%}
+  {% img https://assets.wflint.me/blog.scaledladder.jpg '"laddered style" "laddered style"'%}
+  {% img https://assets.wflint.me/blog.scaledperimiter.jpg '"perimiter style" "perimiter style"'%}
 {% endgrouppicture %}
 
+</div>
 <p style="text-align:center"><sup><em>conveniently, the perimiter path is around 14 feet, putting it comfortably within the standard 5-meter LED tape size!</sup></em></p>
 
 
