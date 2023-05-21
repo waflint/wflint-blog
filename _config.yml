@@ -182,8 +182,6 @@ theme_config:
     # Add pairs each line to customize
     options:
       type: blog
-  mobile_layout_economy: true
-
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
