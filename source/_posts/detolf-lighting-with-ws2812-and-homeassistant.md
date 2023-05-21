@@ -5,7 +5,7 @@ tags: ["detolf", "esphome", "homeassistant", "neopixel", "WS2812"]
 categories: "Neopixel Adventures"
 ---
 
-{% img https://assets.wflint.me/blog.scaledoutcome.jpg '"Neopixel Detolf Lighting" "Neopixel Detolf Lighting"'%}
+{% img https://assets.wflint.me/blog.scaledoutcome.jpg 750 350 '"Neopixel Detolf Lighting" "Neopixel Detolf Lighting"'%}
 
 <!-- more -->
 
@@ -15,21 +15,18 @@ We have a few Ikea detolfs around the house and have had issues lighting them in
 
 Initially I used the “stock” option of sticking 3 ledberg spotlights at the top of the case and feeding power through the lid, but this doesn’t provide even lighting through the layers, and left power leads dangling off the case.
 
-<p style="text-align:center">{% image https://assets.wflint.me/blog.scaledlookup.jpg %}</p>
+{% image https://assets.wflint.me/blog.scaledlookup.jpg 750 350 %}
 
 I iterated over a few revisions which used 5v LED tape soldered to USB leads, but still had a few issues.  The first pass used a zig-zag ladder pattern along the front which was good for spreading light between the layers, but was very visible and didn’t inject much more light overall.  Further, the passive USB-based input was definitely not the right tool for the job once you get past about a meter of tape.
 
 The second pass, while still passively controlled, wrapped the tape around the edges of the case which significantly increased the surface area of light emitted while also not cutting into the view of the case itself. As this introduced right-angles into the equation, the tape needed to be cut and rotated with the use of corner-addons (more on this later)
 
-<table>
-  <tr>
-    <td valign="top">{% img https://assets.wflint.me/blog.scaledladder.jpg '"laddered style" "laddered style"'%}</td>
-    <td valign="top">{% img https://assets.wflint.me/blog.scaledperimiter.jpg '"perimiter style" "perimiter style"'%}</td>
-  </tr>
-  <tr>
-    <td valign="top" colspan=2 style="text-align:center"><sup><em>conveniently, the perimiter path is around 14 feet, putting it comfortably within the standard 5-meter LED tape size!</sup></em><td>
-  </tr>
-</table>
+{% grouppicture 2-2 %}
+  {% img https://assets.wflint.me/blog.scaledladder.jpg 350 800 '"laddered style" "laddered style"'%}
+  {% img https://assets.wflint.me/blog.scaledperimiter.jpg 350 800 '"perimiter style" "perimiter style"'%}
+{% endgrouppicture %}
+
+<p style="text-align:center"><sup><em>conveniently, the perimiter path is around 14 feet, putting it comfortably within the standard 5-meter LED tape size!</sup></em></p>
 
 
 While working through it though I realized I wanted greater control and functionality out of the whole setup. With passive control we’re locked into a single hue and on/off functionality, but by moving to a WS8212 and smart guts, I could stick with the same form factor, but improve everything else with the power of an [arduino board](https://smile.amazon.com/gp/product/B0B19KRPRC) and home automation.
@@ -64,19 +61,15 @@ Using ESPHome’s [Neopixelbus platform](https://esphome.io/components/light/neo
 
 One element that wasn’t self-evident but turned out to be a great addition was bespoke color presets. Using an online [color temperature calculator](https://academo.org/demos/colour-temperature-relationship/).  By taking our nominal channel brightness of 255 and dividing each component into it, we get the proportion of each channel needed for a particular temperature.  This means we get a stable hue with brightness control without any additional fuss.
 
-<p style="text-align:center">
-<table>
-  <tr>
-    <td valign="top">{% img https://assets.wflint.me/blog.scaled3000k.jpg '"3000k" "3000k"'%}</td>
-    <td valign="top">{% img https://assets.wflint.me/blog.scaled4500k.jpg '"4500k" "4500k"'%}</td>
-    <td valign="top">{% img https://assets.wflint.me/blog.scaled6000k.jpg '"6000k" "6000k"'%}</td>
-  </tr>
- </table>
-</p>
+{% grouppicture 3-3 %}
+  {% img https://assets.wflint.me/blog.scaled3000k.jpg '"3000k" "3000k"'%}
+  {% img https://assets.wflint.me/blog.scaled4500k.jpg '"4500k" "4500k"'%}
+  {% img https://assets.wflint.me/blog.scaled6000k.jpg '"6000k" "6000k"'%}
+{% endgrouppicture %}
 
 The operative part of the codeblock is pasted below:
 
-{% codeblock lang:language-yaml %}
+{% codeblock lang:yaml %}
 light:
   - platform: neopixelbus
     type: grb

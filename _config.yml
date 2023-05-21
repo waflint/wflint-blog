@@ -5,7 +5,7 @@
 # Site
 title: Mysterious Life Form Sanctuary
 subtitle: ''
-description: ''
+description: 'Project log and other writing'
 keywords:
 author: Will
 language: en
@@ -134,6 +134,14 @@ theme_config:
   sidebar:
     position: right
   site_state: false
+  social:
+    LinkedIn: https://www.linkedin.com/in/william-flint-03b543165/ || fa-brands fa-linkedin
+  avatar:
+    url: /images/wflint.jpg
+    rounded: true
+  social_icons:
+    enable: true
+    icons_only: true
   motion:
     enable: false
   fancybox: true
@@ -162,16 +170,20 @@ theme_config:
     # Code Highlight theme
     # All available themes: https://theme-next.js.org/highlight/
     theme:
-      light: default
-      dark: stackoverflow-dark
-    prism:
-      light: prism
-      dark: prism-dark
+      light: base16/tomorrow-night
+      dark: base16/tomorrow-night
     copy_button:
       enable: true
   theme_color:
     light: "#222"
     dark: "#222"
+  open_graph:
+    enable: true
+    # Add pairs each line to customize
+    options:
+      type: blog
+  mobile_layout_economy: true
+
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment

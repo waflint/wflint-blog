@@ -23,11 +23,11 @@ Rather than using jumpers I went ahead and splurged on a “Dell Password Reset/
 
 Along with our trusty serial cable, we can go back from idling-jetliner to a reasonable level
 
-``` bash
+{% codeblock lang:bash %}
 tio -b 38400 /dev/ttyS0
 
 >>> set_speed 25
-```
+{% endcodeblock %}
 
 Which nets us:
 {% youtube CMT3XQE43N8 %}
