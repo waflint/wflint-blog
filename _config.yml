@@ -136,6 +136,7 @@ theme_config:
   site_state: false
   social:
     LinkedIn: https://www.linkedin.com/in/william-flint-03b543165/ || fa-brands fa-linkedin
+    Email: mailto:contact@wflint.me || fa-regular fa-envelope
   avatar:
     url: /images/wflint.jpg
     rounded: true
