@@ -9,7 +9,7 @@ date: 2023-05-20 10:31:00
 
 Hello, I'm Will!
 
-I write about tech, Data, and DIY projects
+I write about Tech, Data, and DIY projects
 
 <div style="width:15%; justify-content:space-between; display:flex; margin:auto;">
 <a href="https://www.linkedin.com/in/william-flint-03b543165/"><i class="fa-brands fa-linkedin"></i></a>
