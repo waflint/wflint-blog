@@ -131,6 +131,9 @@ ignore:
 # https://github.com/jbreckmckye/hexo-theme-octo
 theme: next
 theme_config:
+  cache:
+    enable: true
+  minify: true
   scheme: Pisces
   darkmode: true
   sidebar:
@@ -194,9 +197,10 @@ theme_config:
     size: 1
   open_graph:
     enable: true
-    # Add pairs each line to customize
     options:
       type: blog
+  custom_file_path:
+    style: source/_data/styles.styl
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
