@@ -3,6 +3,7 @@ title: MD1200 disk shelf noise tuning
 date: 2022-09-09 16:12:40
 tags: ["homelab", "MD1200", "powervault", "server stuff"]
 categories: "Homelab"
+description: Using a serial connection to an otherwise "dumb" MD1200 disk shelf, we are able to force its fans to slow down from jet-turbine to box-fan levels
 ---
 
 {% post_link 'md1200-disk-shelf-noise-tuning' <img src="https://assets.wflint.me/blog.scaledpowervault.jpeg" width="80%" title="Powervault MD1200" alt="Powervault MD1200"> false %}

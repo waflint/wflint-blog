@@ -128,6 +128,18 @@ ignore:
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 
+feed:
+  type:
+    - atom
+    - rss2
+  path:
+    - atom.xml
+    - rss2.xml
+  icon: /images/favicon.png
+  content:
+  content_limit: 140
+  content_limit_delim: ' '
+
 # https://github.com/jbreckmckye/hexo-theme-octo
 theme: next
 theme_config:
@@ -136,12 +148,14 @@ theme_config:
   minify: true
   scheme: Pisces
   darkmode: true
+  excerpt_description: false
   sidebar:
     position: right
   site_state: false
   social:
     LinkedIn: https://www.linkedin.com/in/william-flint-03b543165/ || fa-brands fa-linkedin
     Email: mailto:contact@wflint.me || fa-regular fa-envelope
+    RSS: /rss2.xml || fa-solid fa-square-rss
   avatar:
     url: /images/wflint.jpg
     rounded: true

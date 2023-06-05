@@ -1,11 +1,11 @@
 ---
-title: NVMe and PLX bridge magic
+title: NVMe and PLX bridges (Chapter 1)
 date: 2023-05-26 16:12:40
 categories: Homelab
 tags: ["homelab", "server stuff", "storage"]
 ---
 
-{% post_link 'NVMe-and-PLX-bridge-magic' <img src="https://assets.wflint.me/blog.plx-bridge-header.jpg" width="80%" title="PLX Bridge and Optane" alt="PLX Bridge and Optane"> false %}
+{% post_link 'NVMe-and-PLX-bridge-ch1' <img src="https://assets.wflint.me/blog.plx-bridge-header.jpg" width="80%" title="PLX Bridge and Optane" alt="PLX Bridge and Optane"> false %}
 
 
 <!-- more -->
