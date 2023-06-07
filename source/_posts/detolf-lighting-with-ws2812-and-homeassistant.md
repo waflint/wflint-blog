@@ -43,7 +43,7 @@ Initially I made use of the bulk-pack alligator clip ones, however between the i
 
 After doing some research, I came across a great [writeup by Josh Levine](https://wp.josh.com/2015/09/12/neopixel-corner-cases-accurate-and-easy-rectangles-with-ws2812b-strips/) tackling this exact issue that set down a board design (which looks to have hit some level of indie manufacture in the time since). As you can see, we did make some slight modifications, but otherwise the design is a real winner!  We opted for 3rd party fabrication rather than etching the boards in-house though as that'll be reserved for a future project. The design itself accommodates the pixels being soldered for “left” and “right” bends, but make sure to figure out which and how many you need before soldering things down. In my case I needed 4 “left” bends as the tape progresses in a spiral pattern. Populating the pixels can either be done by cannibalizing extras from the strip or ordering extras. I went with a [batch from adafruit](https://www.adafruit.com/product/3094) and they’ve been great.
 
-{% youtube rjnrC6yzgLI %}
+{% iframe https://www.youtube-nocookie.com/embed/rjnrC6yzgLI 800 450 %}
 
 ## Power
 
@@ -117,4 +117,4 @@ light:
 
 ## The End Result!
 
-{% youtube k2BvnwIfmRQ %}
+{% iframe https://www.youtube-nocookie.com/embed/k2BvnwIfmRQ 800 450 %}

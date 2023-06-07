@@ -2,6 +2,7 @@
 title: Upgrading A Poweredge r720
 categories: Homelab
 tags: ["server stuff", "homelab"]
+Description: 
 ---
 
 One of my recent projects has been to rehab one of the homelab poweredge boxes to see if I could consolidate workloads from a few standalone devices (and do some testing with TrueNAS Scale on bare metal to stand in for my go-to VMWare and proxmox hypervisors)

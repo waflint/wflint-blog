@@ -2,6 +2,7 @@
 title: setting-up-a-glue-etl-pipeline
 categories: "Data Engineering"
 tags: ["AWS Glue", "Python", "Relational Databases", ]
+Description: 
 ---
 
 Recently I did some work setting up pipelines for a new project and was given some interesting constraints on top of the relatively straightforward requirements

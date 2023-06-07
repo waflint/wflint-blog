@@ -126,8 +126,6 @@ ignore:
 
 # Extensions
 ## Plugins: https://hexo.io/plugins/
-## Themes: https://hexo.io/themes/
-
 feed:
   type:
     - atom
@@ -140,7 +138,7 @@ feed:
   content_limit: 140
   content_limit_delim: ' '
 
-# https://github.com/jbreckmckye/hexo-theme-octo
+## Themes: https://hexo.io/themes/
 theme: next
 theme_config:
   cache:
@@ -215,8 +213,3 @@ theme_config:
       type: blog
   custom_file_path:
     style: source/_data/styles.styl
-
-# Deployment
-## Docs: https://hexo.io/docs/one-command-deployment
-deploy:
-  type: git

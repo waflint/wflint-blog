@@ -33,7 +33,7 @@ tio -b 38400 /dev/ttyS0
 {% endcodeblock %}
 
 Which nets us:
-{% youtube CMT3XQE43N8 %}
+{% iframe https://www.youtube-nocookie.com/embed/CMT3XQE43N8 800 450 %}
 
 The video shows 20% (the lowest it’ll accept) for dramatic effect, however I’ve since settled on 25% as there’s significantly more air without any appreciable increase in noise.
 
