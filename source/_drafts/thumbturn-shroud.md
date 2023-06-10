@@ -3,7 +3,7 @@ title: Adapted Thumbturn Shroud
 date: 2023-05-21 09:10:40
 categories: "3D Printing"
 tags: "3D Printing"
-Description: 
+Description: Designing and printing an adapted handle shroud.
 ---
 
 <!-- more -->
