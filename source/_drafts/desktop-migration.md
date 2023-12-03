@@ -18,6 +18,11 @@ This upgrade has been a few months in the making.  My current daily driver deskt
 
 To validate that nothing would go nuclear at the OS level, I'm testing the windows install by cloning my boot disk and using that on the new board before migrating everything.  I used a [Clonezilla live image](https://clonezilla.org/fine-print-live-doc.php?path=clonezilla-live/doc/03_Disk_to_disk_clone) and everything went smoothly from there.
 
+as a fun extra, I reused this disk to replace another aging SATA drive with a larger capacity.  While normally cloning from a larger drive to a smaller one is not possible, if the donor's data partitions are smaller than the destination (and all near the "beginning" of the disk), it's doable with a few workarounds.
+
+in clonezilla, use advanced mode rather than beginner.  Then when cloning from disk to disk, pick options `-icds` and "Resize partition table proportionally" from the arguments provided.
+This copies over the partition table from the source drive as well as the data itself, but skips validation that it'll all fit.
+
 ### BIOS tweaks
 
 ## **Thunderbolt**
