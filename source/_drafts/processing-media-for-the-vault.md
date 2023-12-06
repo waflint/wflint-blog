@@ -5,8 +5,9 @@ tags:
 Description: 
 ---
 
-
 A collection of notes I wrote up for a friend who's in the process of reviving their plex library
+
+<!-- more -->
 
 Caveats are that this is based on early 2023 assumptions around storage and playback support for 1080p content on local devices with hardware support for h265 (nvidia shield, modern GPUs, etc).
 

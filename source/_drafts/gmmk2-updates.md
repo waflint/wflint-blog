@@ -1,16 +1,14 @@
 ---
-title: gmmk2-updates
+title: Updating a GMMK2
 date: 2023-06-10 17:59:07
 categories: "Keyboard"
 tags: "keyboard"
 description: "I've had a Glorious GMMK2 in storage for a while.  Let's do some basic modifications and see how it behaves!"
 ---
 
-<!-- more -->
-
-### Intro
-
 For the past year or so I've been using a fullsize gen 1 GMMK for work and have recently been looking at trading it out for a new model.  While the GMMK1 is a great value-board, especially in its barebones-chassis configuration coming in around $55, it does lack a few creature comforts (permanently attached cable, no plate foam, proprietary software).  
+
+<!-- more -->
 
 ### GMMK2
 

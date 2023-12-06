@@ -7,6 +7,8 @@ Description:
 
 This is a followup to my previous post on Detolf Lighting which made use of a 5v string of ws8212b LEDs using a generic ESP32 board for use in homeassistant with esphome
 
+<!-- more -->
+
 Athom dedicated unit
 
 ## Benefits
