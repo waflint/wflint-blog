@@ -16,9 +16,7 @@ For the past year or so I've been using a fullsize gen 1 GMMK for work and have 
 
 Nothing too fancy, picked up a set of [GSV2 Stabilizers](https://www.gloriousgaming.com/products/gsv2-stabilizers) with the keycaps
 
-One companion to a stabilizer upgrade is to place bandage material under the stabilizer to help mitigate noise.  After looking around I actually had some gaffer tape on hand and substituted that in as it's remarkably similar (if a little less finnicky).
-
-Fairly straightforward without any fuss.  Just remember that there _is_ some z-height added and the stabilizers may not be happy if one side needs to be clipped in (like these are)
+One companion to a stabilizer upgrade is using band-aids under the wire to help mitigate noise.  While I didn't have any bandages on-hand, I subsituted in some gaffer tape and that seems to have served just as well. While this is straightforward, it does add some Z-height which may not be accounted for.  In this case, as one side of the stabs are clipped (rather than screwed) in, this does necessitate a little more force to install than is typical.
 
 #### Keycaps and Modifier Quirks
 
