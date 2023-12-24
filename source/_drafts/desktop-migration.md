@@ -25,6 +25,34 @@ This copies over the partition table from the source drive as well as the data i
 
 ### BIOS tweaks
 
+### 10gig networking
+
+Due to overhead losses from inter-VLAN routing in my unifi environment, this is connected to the NAS subnet.
+
+{% codeblock %}
+PS D:\My Documents\Downloads\iperf-3.1.3-win64> .\iperf3.exe -c 10.240.11.118 -p 5201
+Connecting to host 10.240.11.118, port 5201
+[  4] local 10.240.11.238 port 64342 connected to 10.240.11.118 port 5201
+[ ID] Interval           Transfer     Bandwidth
+[  4]   0.00-1.00   sec   867 MBytes  7.27 Gbits/sec
+[  4]   1.00-2.00   sec  1.01 GBytes  8.69 Gbits/sec
+[  4]   2.00-3.01   sec   809 MBytes  6.72 Gbits/sec
+[  4]   3.01-4.00   sec   880 MBytes  7.46 Gbits/sec
+[  4]   4.00-5.00   sec  1.01 GBytes  8.68 Gbits/sec
+[  4]   5.00-6.00   sec   812 MBytes  6.81 Gbits/sec
+[  4]   6.00-7.00   sec   998 MBytes  8.37 Gbits/sec
+[  4]   7.00-8.00   sec  1.01 GBytes  8.68 Gbits/sec
+[  4]   8.00-9.00   sec  1.00 GBytes  8.62 Gbits/sec
+[  4]   9.00-10.00  sec  1.00 GBytes  8.62 Gbits/sec
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bandwidth
+[  4]   0.00-10.00  sec  9.30 GBytes  7.99 Gbits/sec                  sender
+[  4]   0.00-10.00  sec  9.30 GBytes  7.99 Gbits/sec                  receiver
+iperf Done. 
+{% endcodeblock %}
+
+Not quite the rated 10gig, but much better than the 2.5gig link I was using in the office.
+
 ## **Thunderbolt**
 
 A few quirks I've found with this ASUS motherboard's thunderbolt controller is that it _really_ dislikes hot-plug connections.  Non-issue once everything is fully installed, but definitely a quirk.
@@ -54,6 +82,10 @@ results:
 ### Connection hiccups
 
 One pitfall with the thunderbolt connection mentioned previously was an issue with hot-plugging not behaving as expected, and after trading out to the second MST hub this still wasn't resolved to an acceptable degree.  What I've gone with longer term is to use hibernation rather than sleep for the system when a low-power standby is needed since I'm not terribly concerned about the wake time so much as that both spin down the onboard HDDs.  From what I've seen, wake-from-sleep frequently causes the dock's thunderbolt connection to be lost entirely (and making it behave as a "generic" USB-C hub) and requires a full reboot to reestablish full thunderbolt connectivity.  Hibernation seems to avoid this with the caveat of sometimes requiring a reseat of the MST hub if HDR isn't being passed through properly.
+
+### Cable quirks
+
+Another recurring issue is with the behavior of the corning optical thunderbolt cable itself.  In a windows environment, once working, works exactly as expected.  Unfortunately, this usually involves a few rebots of the dock or computer and reseating it at the host end.  Having to do that on each wake-from-standby or each reboot is not particularly appealing.  Thanks to a [reddit commenter](https://www.reddit.com/r/Thunderbolt/comments/kvuxi3/comment/h2394rb/) suggesting to solve this issue by daisy-chaining it off of another dock, the system is now up and running consistently.
 
 ## Remote management
 
