@@ -79,13 +79,11 @@ results:
 | Alienware | 1440p 100Hz (SDR 8bit) | 1440p 120Hz (HDR 10bit) |
 | Dell      | 1080p 60Hz (SDR 8bit)  | 1440p 60Hz (SDR 6bit)   |
 
-### Connection hiccups
+### Connection hiccups and Cable Quirks
 
-One pitfall with the thunderbolt connection mentioned previously was an issue with hot-plugging not behaving as expected, and after trading out to the second MST hub this still wasn't resolved to an acceptable degree.  What I've gone with longer term is to use hibernation rather than sleep for the system when a low-power standby is needed since I'm not terribly concerned about the wake time so much as that both spin down the onboard HDDs.  From what I've seen, wake-from-sleep frequently causes the dock's thunderbolt connection to be lost entirely (and making it behave as a "generic" USB-C hub) and requires a full reboot to reestablish full thunderbolt connectivity.  Hibernation seems to avoid this with the caveat of sometimes requiring a reseat of the MST hub if HDR isn't being passed through properly.
+One pitfall with the thunderbolt connection mentioned previously was an issue with hot-plugging not behaving as expected, and after trading out to the second MST hub this still wasn't resolved to an acceptable degree.  What I've gone with longer term is to use hibernation rather than sleep for the system when a low-power standby is needed since I'm not terribly concerned about the wake time so much as that both spin down the onboard HDDs.  From what I've seen, wake-from-sleep frequently causes the dock's thunderbolt connection to be lost entirely (and making it behave as a "generic" USB-C hub) and requires a full reboot to reestablish full thunderbolt connectivity.
 
-### Cable quirks
-
-Another recurring issue is with the behavior of the corning optical thunderbolt cable itself.  In a windows environment, once working, works exactly as expected.  Unfortunately, this usually involves a few rebots of the dock or computer and reseating it at the host end.  Having to do that on each wake-from-standby or each reboot is not particularly appealing.  Thanks to a [reddit commenter](https://www.reddit.com/r/Thunderbolt/comments/kvuxi3/comment/h2394rb/) suggesting to solve this issue by daisy-chaining it off of another dock, the system is now up and running consistently.
+Another recurring issue is with the behavior of the corning optical thunderbolt cable itself.  In a windows environment, once working, works exactly as expected.  Unfortunately, this usually involves a few rebots of the dock or computer and reseating it at the host end.  Having to do that on each wake-from-standby or each reboot is not particularly appealing.  Thanks to a [reddit commenter](https://www.reddit.com/r/Thunderbolt/comments/kvuxi3/comment/h2394rb/) suggesting to solve this issue by daisy-chaining it off of another dock, though compatibility of the optical thunderbolt cable itself was also an issue.
 
 ## Remote management
 

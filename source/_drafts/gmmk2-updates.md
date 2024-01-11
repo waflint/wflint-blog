@@ -6,7 +6,7 @@ tags: "keyboard"
 description: "I've had a Glorious GMMK2 in storage for a while.  Let's do some basic modifications and see how it behaves!"
 ---
 
-For the past year or so I've been using a fullsize gen 1 GMMK for work and have recently been looking at trading it out for a new model.  While the GMMK1 is a great value-board, especially in its barebones-chassis configuration coming in around $55, it does lack a few creature comforts (permanently attached cable, no plate foam, proprietary software).  
+For the past year or so I've been using a fullsize gen 1 GMMK for work and have recently been looking at trading it out for a new model.  While the GMMK1 is a great value-board, especially in its barebones-chassis configuration coming in around $55, it does lack a few creature comforts (permanently attached cable, no plate foam, proprietary software used for config).  
 
 <!-- more -->
 
