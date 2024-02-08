@@ -53,9 +53,22 @@ Not quite the rated 10gig, but much better than the 2.5gig link I was using in t
 
 ## **Thunderbolt**
 
-A few quirks I've found with this ASUS motherboard's thunderbolt controller is that it _really_ dislikes hot-plug connections.  Non-issue once everything is fully installed, but definitely a quirk.
+A few quirks I've found with this ASUS motherboard's thunderbolt controller is that it _really_ dislikes hot-plug connections and picking connections back up from sleep.  Non-issue once everything is fully installed and "settled", but definitely a quirk.
 
-For this deployment, the ASUS board's Titan Ridge TB4 connection will be sent to a Belkin TB3 dock ([F4U097tt](https://www.belkin.com/thunderbolt-3-dock-pro/F4U097tt.html)) over a [corning optical TB3 cable](https://www.corning.com/oem-solutions/worldwide/en/home/products-solutions/active-optical-cables/thunderbolt-optical-cables.html)
+To connect the ASUS board's Titan Ridge TB4 port, I inially started with a Belkin TB3 Pro dock ([F4U097tt](https://www.belkin.com/thunderbolt-3-dock-pro/F4U097tt.html)) over a [corning optical TB3 cable](https://www.corning.com/oem-solutions/worldwide/en/home/products-solutions/active-optical-cables/thunderbolt-optical-cables.html).  This functioned more or less as expected once working, but was subject to some gnarly edge cases.  Resuming connections from sleep was a bit hit or miss, but a major issue came from the initial link on boot.  Occasionally it would fail to "stick" and would require a whole dance of physically reseating _both_ ends of the connector and rebooting (rebooting without reseating would never work, so perhaps something in the optical transciever?).
+
+After some additional research and a hint from a [reddit post](https://www.reddit.com/r/Thunderbolt/comments/z33ykc/comment/j3n372s), I picked up a second belkin dock, this time the Thunderbolt 3 Express Dock HD [F4U095](https://www.belkin.com/thunderbolt-3-express-dock-hd---dual-4k-display-85w-psu/P-F4U095.html).  At the time of writing, this dock is discontinued, but is readily available on ebay for less than $50.  This dock has worked flawlessly with the Corning cable.  My only quibble with it is that the onboard displayport handling is only DP1.2, meaning some kind of daisy-chaining was required to get DP1.4 to the monitors.
+
+### Connection hiccups and Cable Quirks
+
+One pitfall with the thunderbolt connection mentioned previously was an issue with hot-plugging not behaving as expected, and after trading out to the second MST hub this still wasn't resolved to an acceptable degree.  What I've gone with longer term is to use hibernation rather than sleep for the system when a low-power standby is needed since I'm not terribly concerned about the wake time so much as that both spin down the onboard HDDs.  From what I've seen, wake-from-sleep frequently causes the dock's thunderbolt connection to be lost entirely (and making it behave as a "generic" USB-C hub) and requires a full reboot to reestablish full thunderbolt connectivity.
+
+Another recurring issue is with the behavior of the corning optical thunderbolt cable itself.  In a windows environment, once working, works exactly as expected.  Unfortunately, this usually involves a few rebots of the dock or computer and reseating it at the host end.  Having to do that on each wake-from-standby or each reboot is not particularly appealing.  Thanks to a [reddit commenter](https://www.reddit.com/r/Thunderbolt/comments/kvuxi3/comment/h2394rb/) suggesting to solve this issue by daisy-chaining it off of another dock, though compatibility of the optical thunderbolt cable itself was also an issue.
+
+I've tried a few additional docks with the results below having tested directly from the PC
+
+### Dock Selections
+
 
 ### Multi Monitor?
 
@@ -74,14 +87,8 @@ In both cases however, support for variable refresh rate (VRR/Freesync/G-Sync) w
 results:
 |           | MST14DP122DP           | MST14CD122DP            |
 |-----------|------------------------|-------------------------|
-| AW3423DW  | 1440p 100Hz (SDR 8bit) | 1440p 120Hz (**HDR 10bit**) |
-| S2719DGF  | 1080p 60Hz (SDR 8bit)  | 1440p 60Hz (SDR 6bit)   |
-
-### Connection hiccups and Cable Quirks
-
-One pitfall with the thunderbolt connection mentioned previously was an issue with hot-plugging not behaving as expected, and after trading out to the second MST hub this still wasn't resolved to an acceptable degree.  What I've gone with longer term is to use hibernation rather than sleep for the system when a low-power standby is needed since I'm not terribly concerned about the wake time so much as that both spin down the onboard HDDs.  From what I've seen, wake-from-sleep frequently causes the dock's thunderbolt connection to be lost entirely (and making it behave as a "generic" USB-C hub) and requires a full reboot to reestablish full thunderbolt connectivity.
-
-Another recurring issue is with the behavior of the corning optical thunderbolt cable itself.  In a windows environment, once working, works exactly as expected.  Unfortunately, this usually involves a few rebots of the dock or computer and reseating it at the host end.  Having to do that on each wake-from-standby or each reboot is not particularly appealing.  Thanks to a [reddit commenter](https://www.reddit.com/r/Thunderbolt/comments/kvuxi3/comment/h2394rb/) suggesting to solve this issue by daisy-chaining it off of another dock, though compatibility of the optical thunderbolt cable itself was also an issue.
+| AW3423DW  | 1440p 100Hz (SDR 8bit) | 1440p 120Hz (**HDR 10bit**) or 175Hz (HDR 8bit) |
+| S2719DGF  | 1080p 60Hz (SDR 8bit)  | 1440p 60Hz (SDR 6bit or 8bit)   |
 
 ## Remote management
 
@@ -116,16 +123,15 @@ rest_command:
     end
     subgraph office [Office]
         subgraph docks
-            PC <--> |"Corning\nThunderbolt 3"|hub1["Belkin\nF4U097tt"]
-            hub1 <-->|"Thunderbolt 3"|hub2["belkin dock2"]
-            hub2 --> |"Displayport 1.4"|MST["Startech\nMST14CD122DP"]
+            PC <--> |"Corning Optical\nThunderbolt 3"|hub1["Belkin\nF4U095"]
+            hub1 <-->|"TB3"|hub2["Belkin\nF4U097tt"]
+            hub2 --> |"USB-C"|MST["Startech\nMST14CD122DP"]
             hub1 <-->|"USB"|usbhub["USB Hub"]
         end
         subgraph HIDish
-            hub1 <-->|"USB"|monitor1
-            MST --> monitor1["Alienware\nAW3423DW"]
-            MST --> monitor2["Dell\nS2719DGF"]
             usbhub <--> Mouse/Keyboard
+            hub1 <-->|"USB"|monitor1
+            MST --> |"DP1.4"|monitor1["Alienware\nAW3423DW"] & monitor2["Dell\nS2719DGF"]
         end
     end
 {% endmermaid %}
