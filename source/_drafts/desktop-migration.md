@@ -23,8 +23,6 @@ as a fun extra, I reused this disk to replace another aging SATA drive with a la
 in clonezilla, use advanced mode rather than beginner.  Then when cloning from disk to disk, pick options `-icds` and "Resize partition table proportionally" from the arguments provided.
 This copies over the partition table from the source drive as well as the data itself, but skips validation that it'll all fit.
 
-### BIOS tweaks
-
 ### 10gig networking
 
 Due to overhead losses from inter-VLAN routing in my unifi environment, this is connected to the NAS subnet.
@@ -76,8 +74,8 @@ In both cases however, support for variable refresh rate (VRR/Freesync/G-Sync) w
 results:
 |           | MST14DP122DP           | MST14CD122DP            |
 |-----------|------------------------|-------------------------|
-| Alienware | 1440p 100Hz (SDR 8bit) | 1440p 120Hz (HDR 10bit) |
-| Dell      | 1080p 60Hz (SDR 8bit)  | 1440p 60Hz (SDR 6bit)   |
+| AW3423DW  | 1440p 100Hz (SDR 8bit) | 1440p 120Hz (**HDR 10bit**) |
+| S2719DGF  | 1080p 60Hz (SDR 8bit)  | 1440p 60Hz (SDR 6bit)   |
 
 ### Connection hiccups and Cable Quirks
 
@@ -104,3 +102,30 @@ rest_command:
 {% endcodeblock %}
 
 (note that the above user needs to be configured as a KVM/interactive user rather than a SSH/system user)
+
+## All together
+
+{% mermaid flowchart LR %}
+    subgraph basement [Basement]
+        I[10gig uplink] <--> PC
+        J[POE uplink] <--> kvm["blikvm"]
+        kvm <--> s
+        subgraph PC [PC]
+            s["Asus X570"]
+        end
+    end
+    subgraph office [Office]
+        subgraph docks
+            PC <--> |"Corning\nThunderbolt 3"|hub1["Belkin\nF4U097tt"]
+            hub1 <-->|"Thunderbolt 3"|hub2["belkin dock2"]
+            hub2 --> |"Displayport 1.4"|MST["Startech\nMST14CD122DP"]
+            hub1 <-->|"USB"|usbhub["USB Hub"]
+        end
+        subgraph HIDish
+            hub1 <-->|"USB"|monitor1
+            MST --> monitor1["Alienware\nAW3423DW"]
+            MST --> monitor2["Dell\nS2719DGF"]
+            usbhub <--> Mouse/Keyboard
+        end
+    end
+{% endmermaid %}
