@@ -69,16 +69,16 @@ I've tried a few additional docks with the results below having tested directly 
 
 ### Dock Selections
 
-|     <div align="center">Name</div>                     |        P/N       | Link over optical? | Onboard MST Hub? |                     <div align="center">Notes</div>                                         |
-|:-------------------------------------------------------|:----------------:|:------------------:|:----------------:|:--------------------------------------------------------------------------------------------|
-| Belkin   Thunderbolt 3 Express Dock HD                 | F4U095           |<font color="green">✔</font>| ❌     | • Links flawlessly including preboot<br>• only passes DP1.2                                  |
-| Belkin   Thunderbolt 3 Dock Pro                        | F4U097tt         |<font color="yellow">⚠</font>| ❌    | • Inconsistent link on sleep/wake and reboot<br>• passes DP1.4, but required MST hub         |
-| Lenovo   ThinkPad Thunderbolt 3 Dock Gen 2             | 40AN0135US       | ❌     |<font color="green">✔</font>| • did not link over optical<br>• passes DP1.4 when daisy-chained                             |
-| HP Thunderbolt Dock 120W G2                            | 2UK37UT#ABA      | ❌     |<font color="green">✔</font>| • host port is accessible from bottom of unit<br>• did not link                              |
-| CalDigit Thunderbolt 4 Element   Hub                   | TBT4 Element Hub |<font color="yellow">⚠</font>| ❌    | • updated to FW .40 for better optical compatibility<br>• unit linked, but only passed flickering DP1.2 |
-| Dell Thunderbolt 4 Dock                                | WD22TB4          | ❌    |<font color="green">✔</font>| • used USB4-rated "active" coupler<br>• did not link                                         |
-|                                                        |                  |                   |                  |                                                                                              |
-| Wavlink Thunderbolt Dual DisplayPort Adapter           | WL-UTA21D        |         -         |         -        | Did not work for my application, though not inherently flawed                                |
+|     <div align="center">Name</div>               |        P/N       | Link over optical? | Onboard MST Hub? |                     <div align="center">Notes</div>                                  |
+|:-------------------------------------------------|:----------------:|:------------------:|:----------------:|:-------------------------------------------------------------------------------------|
+| Belkin Thunderbolt 3 Express Dock HD             | F4U095           |<font color="green">✔</font>| ❌      | • Links flawlessly including preboot<br>• only passes DP1.2                          |
+| Belkin Thunderbolt 3 Dock Pro                    | F4U097tt         |<font color="yellow">⚠</font>| ❌     | • Inconsistent link on sleep/wake and reboot<br>• passes DP1.4, but required MST hub |
+| Lenovo ThinkPad Thunderbolt 3 Dock Gen 2         | 40AN0135US       | ❌     |<font color="green">✔</font> | • did not link over optical<br>• passes DP1.4 when daisy-chained                     |
+| HP Thunderbolt Dock 120W G2                      | 2UK37UT#ABA      | ❌     |<font color="green">✔</font> | • host port is accessible from bottom of unit<br>• did not link                      |
+| CalDigit Thunderbolt 4 Element Hub               | TBT4 Element Hub |<font color="yellow">⚠</font>| ❌     | • updated to FW .40 for better optical compatibility<br>• unit linked, but only passed flickering DP1.2 |
+| Dell Thunderbolt 4 Dock                          | WD22TB4          | ❌    |<font color="green">✔</font>  | • used USB4-rated "active" coupler<br>• did not link                                 |
+|                                                  |                  |                   |                   |                                                                                      |
+| Wavlink Thunderbolt Dual DisplayPort Adapter     | WL-UTA21D        |         -         |         -         | • daisy-chained, but did not "split" streams                                         |
 
 ### Multi Monitor?
 
