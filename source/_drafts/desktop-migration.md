@@ -3,29 +3,35 @@ title: Desktop Migration!
 date: 2023-12-01 11:00:08
 categories:
 tags:
-description:
+description: "This upgrade has been a few months in the making.  We're going to upgrade an old AM4 B550 to X570 and move things out of the office!"
 ---
 
-This upgrade has been a few months in the making.  My current daily driver desktop is an AM4 based system on an older MSI B550 motherboard, today we're going to upgrade that to X570 and hopefully add some functionality
+{% post_link 'desktop-migration' <img src="https://assets.wflint.me/blog.thunderbolt.scaled.jpg" width="60%" title="Thunderbolt Dock Stack" alt="Thunderbolt Dock Stack"> false %}
 
 <!-- more -->
 
+This upgrade has two major components.  
 
+* First: Swapping my MSI B550 board out for an ASUS X570 board
+* Second: Move the build from my office on the second floor to the basement _without losing functionality_
 
-## Testing
+## Board Swap
+
+First up, I'm trading boards from an [MSI B550 MAG](https://www.msi.com/Motherboard/MAG-B550-TOMAHAWK/Overview) to an [ASUS ProArt X570-Creator](https://www.asus.com/us/motherboards-components/motherboards/proart/proart-x570-creator-wifi/).  Primary motivator for this is both the upgrade in chipset performance as well as the addition of onboard 10GbE networking and Thunderbolt.
 
 ### Boot Disk Clone
 
-To validate that nothing would go nuclear at the OS level, I'm testing the windows install by cloning my boot disk and using that on the new board before migrating everything.  I used a [Clonezilla live image](https://clonezilla.org/fine-print-live-doc.php?path=clonezilla-live/doc/03_Disk_to_disk_clone) and everything went smoothly from there.
+As part of the upgrade, I'm upsizing my 1TB Samsung 970EVO Plus disk to a 2TB 980Pro. Samsung offers a data migration utility, however I'll be performing a few migrations on non-samsung disks in the future so we'll be using something more platform-agnostic.  Using a [Clonezilla live image](https://clonezilla.org/fine-print-live-doc.php?path=clonezilla-live/doc/03_Disk_to_disk_clone) and spare scratchdisk, everything went smoothly while expanding out the existing disk partitions.  The dryrun here paid off and the "full" migration went without incident.
 
-as a fun extra, I reused this disk to replace another aging SATA drive with a larger capacity.  While normally cloning from a larger drive to a smaller one is not possible, if the donor's data partitions are smaller than the destination (and all near the "beginning" of the disk), it's doable with a few workarounds.
+as a fun extra (and to cope with the smaller number of SATA headers on this board) I went through an additional cloning operation; cloning a larger SATA disk to a smaller NVMe drive.  While normally cloning from a larger drive to a smaller one is not supported, but with a few workarounds it's doable if the combined size of the donor's data partitions can fit the destination disk (and all near the "beginning" of the drive).
 
-in clonezilla, use advanced mode rather than beginner.  Then when cloning from disk to disk, pick options `-icds` and "Resize partition table proportionally" from the arguments provided.
-This copies over the partition table from the source drive as well as the data itself, but skips validation that it'll all fit.
+in clonezilla's [advanced mode](https://clonezilla.org/clonezilla-live/doc/03_Disk_to_disk_clone/advanced/05-advanced-param.php), using options `-icds` and "Resize partition table proportionally" copies over the partition table from the source drive as well as the data itself, but skips the validations.
 
 ### 10gig networking
 
 Due to overhead losses from inter-VLAN routing in my unifi environment, this is connected to the NAS subnet.
+
+What we're testing here is primarily that we're not accumulating any unforseen losses due to cable choice or anything major.  My upstream in this case is going to a [USW-Aggregation](https://store.ui.com/us/en/pro/category/all-switching/products/usw-aggregation) switch with a no-name 10GbE SFP+ to RJ45 adapter.
 
 {% codeblock %}
 PS D:\My Documents\Downloads\iperf-3.1.3-win64> .\iperf3.exe -c 10.240.11.118 -p 5201
@@ -49,23 +55,19 @@ Connecting to host 10.240.11.118, port 5201
 iperf Done. 
 {% endcodeblock %}
 
-Not quite the rated 10gig, but much better than the 2.5gig link I was using in the office.
+Not quite the rated 10gig, but much better than the 2.5GbE link I was using in the office.
 
 ## **Thunderbolt**
 
+This is the where most of the cost and headache of the project lies.
+
 A few quirks I've found with this ASUS motherboard's thunderbolt controller is that it _really_ dislikes hot-plug connections and picking connections back up from sleep.  Non-issue once everything is fully installed and "settled", but definitely a quirk.
 
-To connect the ASUS board's Titan Ridge TB4 port, I inially started with a Belkin TB3 Pro dock ([F4U097tt](https://www.belkin.com/thunderbolt-3-dock-pro/F4U097tt.html)) over a [corning optical TB3 cable](https://www.corning.com/oem-solutions/worldwide/en/home/products-solutions/active-optical-cables/thunderbolt-optical-cables.html).  This functioned more or less as expected once working, but was subject to some gnarly edge cases.  Resuming connections from sleep was a bit hit or miss, but a major issue came from the initial link on boot.  Occasionally it would fail to "stick" and would require a whole dance of physically reseating _both_ ends of the connector and rebooting (rebooting without reseating would never work, so perhaps something in the optical transciever?).
+To connect the ASUS board's Titan Ridge TB4 port, I inially started with a Belkin TB3 Pro dock ([F4U097tt](https://www.belkin.com/thunderbolt-3-dock-pro/F4U097tt.html)) over a [corning optical TB3 cable](https://www.corning.com/oem-solutions/worldwide/en/home/products-solutions/active-optical-cables/thunderbolt-optical-cables.html).  This functioned more or less as expected once working, but was subject to some gnarly edge cases.  Resuming connections from sleep was a bit hit or miss, but a major issue came from the initial link on boot.  Occasionally it would fail to "stick" and would require a whole dance of physically reseating _both_ ends of the connector and rebooting (rebooting without reseating would never work, so perhaps something in the optical transciever?).  Thanks to a [reddit commenter](https://www.reddit.com/r/Thunderbolt/comments/kvuxi3/comment/h2394rb/) suggesting to solve this issue by daisy-chaining it off of another dock, though compatibility of the optical thunderbolt cable itself was also an issue.  Wake-from-sleep frequently causes the dock's thunderbolt connection to be lost entirely (and making it behave as a "generic" USB-C hub) and requires a full reboot (or five) to reestablish full thunderbolt connectivity.
 
-After some additional research and a hint from a [reddit post](https://www.reddit.com/r/Thunderbolt/comments/z33ykc/comment/j3n372s), I picked up a second belkin dock, this time the Thunderbolt 3 Express Dock HD [F4U095](https://www.belkin.com/thunderbolt-3-express-dock-hd---dual-4k-display-85w-psu/P-F4U095.html).  At the time of writing, this dock is discontinued, but is readily available on ebay for less than $50.  This dock has worked flawlessly with the Corning cable.  My only quibble with it is that the onboard displayport handling is only DP1.2, meaning some kind of daisy-chaining was required to get DP1.4 to the monitors.
+After some additional research and a hint from another [reddit post](https://www.reddit.com/r/Thunderbolt/comments/z33ykc/comment/j3n372s), I picked up a second belkin dock, this time the Thunderbolt 3 Express Dock HD [F4U095](https://www.belkin.com/thunderbolt-3-express-dock-hd---dual-4k-display-85w-psu/P-F4U095.html).  At the time of writing, this dock is discontinued, but is readily available on ebay for less than $50.  This dock has worked flawlessly with the Corning cable.  My only quibble with it is that the onboard displayport handling is only DP1.2, meaning some kind of daisy-chaining was required to get DP1.4 to the monitors.
 
-### Connection hiccups and Cable Quirks
-
-One pitfall with the thunderbolt connection mentioned previously was an issue with hot-plugging not behaving as expected, and after trading out to the second MST hub this still wasn't resolved to an acceptable degree.  What I've gone with longer term is to use hibernation rather than sleep for the system when a low-power standby is needed since I'm not terribly concerned about the wake time so much as that both spin down the onboard HDDs.  From what I've seen, wake-from-sleep frequently causes the dock's thunderbolt connection to be lost entirely (and making it behave as a "generic" USB-C hub) and requires a full reboot to reestablish full thunderbolt connectivity.
-
-Another recurring issue is with the behavior of the corning optical thunderbolt cable itself.  In a windows environment, once working, works exactly as expected.  Unfortunately, this usually involves a few rebots of the dock or computer and reseating it at the host end.  Having to do that on each wake-from-standby or each reboot is not particularly appealing.  Thanks to a [reddit commenter](https://www.reddit.com/r/Thunderbolt/comments/kvuxi3/comment/h2394rb/) suggesting to solve this issue by daisy-chaining it off of another dock, though compatibility of the optical thunderbolt cable itself was also an issue.
-
-I've tried a few additional docks with the results below having tested directly from the PC
+I've tried a few additional docks with the results below having tested directly from the PC.  Essentially all docks worked when daisy chained to the Express Dock HD, however the USB side-band always seems to be dropped on the downstream device.
 
 ### Dock Selections
 
@@ -97,8 +99,8 @@ In both cases however, support for variable refresh rate (VRR/Freesync/G-Sync) w
 results:
 |           | MST14DP122DP           | MST14CD122DP            |
 |-----------|------------------------|-------------------------|
-| AW3423DW  | 1440p 100Hz (SDR 8bit) | 1440p 120Hz (**HDR 10bit**) or 175Hz (HDR 8bit) |
-| S2719DGF  | 1080p 60Hz (SDR 8bit)  | 1440p 60Hz (SDR 6bit or 8bit)   |
+| AW3423DW  | 1440p 100Hz (SDR 8bit) | • 1440p 120Hz (**HDR 10bit**)<br>• 175Hz (HDR 8bit) |
+| S2719DGF  | 1080p 60Hz (SDR 8bit)  | • 1440p 60Hz (SDR 6bit)<br>•1440p 60Hz (SDR 8bit)   |
 
 ## Remote management
 
@@ -110,12 +112,21 @@ while it's platform-agnostic, I'll be using Home Assistant's [REST command integ
 
 {% codeblock lang:yaml %}
 rest_command:
-  my_request:
-    url: 'https://pikvm.localdomain.net/api/atx/click?button={% raw %}{{ button }}{% endraw %}'
+  pikvm_buttonclick:
+    url: 'https://pikvm.localdomain.xyz/api/atx/click?button={% raw %}{{ button }}{% endraw %}'
     method: POST
     headers:
       X-KVMD-User: !secret pikvm_user
       X-KVMD-Passwd: !secret pikvm_pass
+{% endcodeblock %}
+
+and called with
+
+{% codeblock lang:yaml %}
+service: rest_command.pikvm_buttonclick
+metadata: {}
+data:
+    button: power
 {% endcodeblock %}
 
 (note that the above user needs to be configured as a KVM/interactive user rather than a SSH/system user)
@@ -126,7 +137,7 @@ rest_command:
     subgraph basement [Basement]
         I[10gig uplink] <---> PC
         J[POE uplink] <--> kvm["blikvm"]
-        kvm <--> s
+        kvm <--> PC
         subgraph PC [PC]
             s["Asus X570"]
         end
