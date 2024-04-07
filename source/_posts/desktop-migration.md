@@ -104,6 +104,7 @@ I've tried a few additional docks with the results below having tested directly 
 | HP Thunderbolt Dock 120W G2                      | 2UK37UT#ABA      | ❌     |<font color="green">✔</font> | • host port is accessible from bottom of unit<br>• did not link                      |
 | CalDigit Thunderbolt 4 Element Hub               | TBT4 Element Hub |<font color="yellow">⚠</font>| ❌     | • updated to FW .40 for better optical compatibility<br>• unit linked, but only passed flickering DP1.2 |
 | Dell Thunderbolt 4 Dock                          | WD22TB4          | ❌    |<font color="green">✔</font>  | • used USB4-rated "active" coupler<br>• did not link                                 |
+| OWC Thunderbolt Pro Dock                         | OWCTB3DKPRO      | ❌    |<font color="green">✔</font>  | • attempted to link, but appeared to get stuck in a negotiation loop                 |
 |                                                  |                  |                   |                   |                                                                                      |
 | Wavlink Thunderbolt Dual DisplayPort Adapter     | WL-UTA21D        |         -         |         -         | • daisy-chained, but did not "split" streams                                         |
 
