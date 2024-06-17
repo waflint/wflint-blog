@@ -4,10 +4,8 @@ date: 2023-06-04 18:38:40
 categories: Homelab
 tags: ["homelab", "server stuff", "storage"]
 description: Testing multiple configurations for optane drives in a poweredge r720 TrueNAS Scale ZFS pool where bifurcation is not available.
+photo: "https://assets.wflint.me/blog.plx-bridge-header.jpg"
 ---
-
-{% post_link 'NVMe-and-PLX-bridge-ch1' <img src="https://assets.wflint.me/blog.plx-bridge-header.jpg" width="80%" title="PLX Bridge and Optane" alt="PLX Bridge and Optane"> false %}
-
 
 <!-- more -->
 

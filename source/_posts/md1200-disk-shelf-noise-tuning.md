@@ -4,11 +4,8 @@ date: 2022-09-09 16:12:40
 tags: ["homelab", "MD1200", "powervault", "server stuff", "storage"]
 categories: "Homelab"
 description: Using a serial connection to an otherwise "dumb" MD1200 disk shelf, we are able to force its fans to slow down from jet-turbine to box-fan levels
+photo: "https://assets.wflint.me/blog.scaledpowervault.jpeg"
 ---
-
-{% post_link 'md1200-disk-shelf-noise-tuning' <img src="https://assets.wflint.me/blog.scaledpowervault.jpeg" width="80%" title="Powervault MD1200" alt="Powervault MD1200"> false %}
-
-<!-- more -->
 
 I'm currently running a TrueNAS install for my local network using an MD1200 as an external storage enclosure. The performance and behavior has been awesome, however the noise from the disk shelf was exceptional (even compared to stock settings on an r720).
 

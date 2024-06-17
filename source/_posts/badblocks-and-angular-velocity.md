@@ -4,9 +4,8 @@ date: 2023-07-01 10:16:39
 categories: "Homelab"
 tags: ["storage", "server stuff", "homelab"]
 description: Quick post about hard disk behavior
+photo: "https://assets.wflint.me/blog.badblocksdiskrate.png"
 ---
-
-{% post_link 'badblocks-and-angular-velocity' <img src="https://assets.wflint.me/blog.badblocksdiskrate.png" width="80%" title="Disk Activity Curves" alt="Disk Activity Curves"> false %}
 
 <!-- more -->
 

@@ -4,11 +4,8 @@ date: 2022-09-18 16:12:40
 tags: ["detolf", "esphome", "homeassistant", "neopixel", "WS2812"]
 categories: "Neopixel Adventures"
 description: Using 5v WS2812 ARGB lighting inside an IKEA detolf cabinet controlled using an ESP32 and Homeassistant
+photo: "https://assets.wflint.me/blog.scaledoutcome.jpg"
 ---
-
-{% post_link 'detolf-lighting-with-ws2812-and-homeassistant' <img src="https://assets.wflint.me/blog.scaledoutcome.jpg" width="80%" title="Neopixel Detolf Lighting" alt="Neopixel Detolf Lighting"> false %}
-
-<!-- more -->
 
 ## Preface
 

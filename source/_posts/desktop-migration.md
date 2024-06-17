@@ -4,11 +4,8 @@ date: 2024-02-11 11:00:08
 categories: ["PC"]
 tags: ["PC", "thunderbolt", "networking", "homeassistant"]
 description: "This upgrade has been a few months in the making.  We're going to upgrade an old AM4 B550 to X570 and move things out of the office!"
+photo: "https://assets.wflint.me/blog.desktops.scaled.thunderboltdocks.jpg"
 ---
-
-{% post_link 'desktop-migration' <img src="https://assets.wflint.me/blog.desktops.scaled.thunderboltdocks.jpg" width="80%" title="Thunderbolt Dock Stack" alt="Thunderbolt Dock Stack"> false %}
-
-<!-- more -->
 
 This upgrade has two major components.  
 

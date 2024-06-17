@@ -146,7 +146,7 @@ theme_config:
   minify: true
   scheme: Pisces
   darkmode: true
-  excerpt_description: false
+  # excerpt_description: false
   sidebar:
     position: right
   site_state: false
