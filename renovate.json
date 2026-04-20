@@ -4,6 +4,7 @@
     "config:base"
   ],
   "rangeStrategy": "bump",
+  "minimumReleaseAge": 7,
   "lockFileMaintenance": {
     "enabled": true
   }
